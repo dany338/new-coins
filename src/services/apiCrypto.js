@@ -1,4 +1,4 @@
-import { BRAVENEWCOIN_URL_API } from '../config/const';
+import { BRAVENEWCOIN_URL_API, BRAVENEWCOIN_X_RAPIDAPI_HOST, BRAVENEWCOIN_X_RAPIDAPI_KEY } from '../config/const';
 /* Defined Endpoints */
 import endpoints from '../config/endpoints';
 
@@ -6,8 +6,8 @@ const apiHeaders = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
   Authorization: '',
-  'x-rapidapi-host': ,
-  'x-rapidapi-key':  ,
+  'x-rapidapi-host': BRAVENEWCOIN_X_RAPIDAPI_HOST,
+  'x-rapidapi-key':  BRAVENEWCOIN_X_RAPIDAPI_KEY,
 };
 
 const fetchParams = (method, data = '') => {

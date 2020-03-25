@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import InfiniteScroll from "react-infinite-scroll-component";
 /* Style Components */
 import { Card } from './styled';
 import * as BravenewcoinServices from "../services";
 
 const ListadoMonedas = ({ history, match }) => {
   const [ coin, setCoin ] = useState('btc');
+  const [ data, setData ] = useState([]);
   const [ loading, setLoading ] = useState(false);
 
-  const asyncData = async () => {
+  const load = useCallback(async () => {
     setLoading(true);
-    const data = await BravenewcoinServices.apiCrypto.prices(coin);
+    const newData = await BravenewcoinServices.apiCrypto.prices(coin);
+    setData(newData);
     setLoading(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    if(data.length === 0 && !loading) {
+      load();
+    }
+  }, [data, load, loading]);
 
   return (
     <Card>

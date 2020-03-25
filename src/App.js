@@ -9,10 +9,6 @@ import Header from './components/Header';
 import ListadoMonedas from './pages/ListadoMonedas';
 import RealizarCambio from './pages/RealizarCambio';
 
-/* Hooks */
-import {useLogin} from "./hooks";
-import Redirect from "react-router-dom/es/Redirect";
-
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
   @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
@@ -21,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
     font-size: ${props => props.fontSize};
     font-family: 'Roboto', sans-serif;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
   }
 `;
@@ -30,8 +26,6 @@ const themeContext = {
   theme: themes.light,
   toogleTheme: () => {}
 };
-
-export const UserContext = React.createContext(null);
 
 export const ThemeContext = React.createContext(themeContext);
 
@@ -44,7 +38,7 @@ const App = () => {
           <Header />
           <Switch>
             <Route exact path="/" component={ListadoMonedas} />
-            <Route exact path="/dashboard" component={RealizarCambio} />
+            <Route exact path="/realizar-cambio" component={RealizarCambio} />
           </Switch>
         </div>
       </BrowserRouter>
