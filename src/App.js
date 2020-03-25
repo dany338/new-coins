@@ -39,6 +39,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={ListadoMonedas} />
             <Route exact path="/realizar-cambio" component={RealizarCambio} />
+            <Route exact path="/realizar-cambio/:currency" component={RealizarCambio} />
           </Switch>
         </div>
       </BrowserRouter>

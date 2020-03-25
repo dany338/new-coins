@@ -6,6 +6,8 @@ const colors = {
   fuchsia: "#F42F63",
   fuchsiaDark: "#7d203e",
   blue: "#4d2ff4",
+  red: "#fb3764",
+  green: "#15da76",
 
   lightGrey: "#CCCCCC",
   mediumGrey: "#8d8d8d",
